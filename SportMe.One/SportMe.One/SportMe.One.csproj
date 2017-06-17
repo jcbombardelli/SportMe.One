@@ -38,7 +38,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.xaml.cs">
     <Compile Include="Domain\Lead.cs" />
     <Compile Include="Domain\Feeder.cs" />
     <Compile Include="Helpers\Guardian.cs" />
@@ -48,6 +47,7 @@
     <Compile Include="Helpers\RestClient.cs" />
     <Compile Include="IOC\IDeviceStorage.cs" />
     <Compile Include="ViewModel\Lead\LeadViewModel.cs" />
+    <Compile Include="View\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,7 +61,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
+    <EmbeddedResource Include="View\Main\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Newtonsoft.Json;
+using SportMe.One.Domain;
+using SportMe.One.Helpers;
+using SportMe.One.View;
 
 using Xamarin.Forms;
 
@@ -13,7 +13,13 @@ namespace SportMe.One
         {
             InitializeComponent();
 
-            MainPage = new SportMe.One.MainPage();
+
+            if (PreferencesOne.Instance.LembrarMe)
+                MainPage = new MainPage();
+            else
+            {
+                MainPage = new LoginView();
+            }
         }
 
         protected override void OnStart()
@@ -30,5 +36,8 @@ namespace SportMe.One
         {
             // Handle when your app resumes
         }
+
+
+
     }
 }

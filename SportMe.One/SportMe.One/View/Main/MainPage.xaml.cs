@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace SportMe.One
+namespace SportMe.One.View
 {
     public partial class MainPage : ContentPage
     {
