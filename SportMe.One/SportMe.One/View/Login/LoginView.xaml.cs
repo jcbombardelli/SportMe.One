@@ -10,9 +10,7 @@ namespace SportMe.One.View
     public partial class LoginView : ContentPage
     {
 
-
         private LoginViewModel loginViewModel = new LoginViewModel();
-
 
         public LoginView()
         {
@@ -21,14 +19,10 @@ namespace SportMe.One.View
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-
-            loginViewModel.GetClubs();
-
+            picker.ItemsSource = await loginViewModel.GetClubs();
         }
-
-
     }
 }

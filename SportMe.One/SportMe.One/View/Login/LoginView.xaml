@@ -1,18 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SportMe.One.View.LoginView">
+             xmlns:j="clr-namespace:SportMe.One.Controls"
+             x:Class="SportMe.One.View.LoginView"    
+             BackgroundColor="#1f271b">
 
 
 
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+    <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="Center">
 
-        <Entry Placeholder="Usuario" Text="{Binding Path=FeederInstance.User}"/>
-        <Entry Placeholder="Senha" Text="{Binding Path=FeederInstance.Pass}" IsPassword="True"/>
+        <j:Entry Text="{Binding Path=FeederInstance.User}" Placeholder="Usuario" 
+                 TextColor="White" PlaceholderColor="AntiqueWhite" />
 
-        <Picker ItemsSource="{Binding Path=Clubes}"/>
+        <Entry Text="{Binding Path=FeederInstance.Pass}" IsPassword="True"
+               Placeholder="Senha" 
+               TextColor="White" PlaceholderColor="Wheat"/>
 
-        <Button Text="Entrar" Command="{Binding LoginCommand}"/>
+        <Picker x:Name="picker" ItemsSource="{Binding Path=Clubes}" 
+                TextColor="White"/>
+
+        <Button Text="Entrar" Command="{Binding LoginCommand}" BackgroundColor="#f4d35e" TextColor="White"/>
     </StackLayout>
 
 </ContentPage>

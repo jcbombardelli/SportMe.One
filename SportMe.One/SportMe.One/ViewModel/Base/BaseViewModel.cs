@@ -1,14 +1,10 @@
 ﻿using SportMe.One.Helpers;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SportMe.One.ViewModel.Base
 {
-    public class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged
     {
 
         bool _bIsLoading = false;
@@ -20,9 +16,22 @@ namespace SportMe.One.ViewModel.Base
                 if (_bIsLoading != value)
                 {
                     _bIsLoading = value;
-                    Notify.OnPropertyChanged(this, nameof(IsLoading));
+                    OnPropertyChanged(nameof(IsLoading));
                 }
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, e);
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
