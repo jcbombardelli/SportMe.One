@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Entry.cs" />
     <Compile Include="Domain\Lead.cs" />
     <Compile Include="Domain\Feeder.cs" />
     <Compile Include="Helpers\Guardian.cs" />
