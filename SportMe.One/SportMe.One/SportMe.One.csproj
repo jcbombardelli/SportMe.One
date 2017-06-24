@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="Controls\Converter\IntegerToCurrency.cs" />
     <Compile Include="Controls\Entry.cs" />
+    <Compile Include="Domain\Clube.cs" />
     <Compile Include="Domain\Lead.cs" />
     <Compile Include="Domain\Feeder.cs" />
     <Compile Include="Helpers\Guardian.cs" />
