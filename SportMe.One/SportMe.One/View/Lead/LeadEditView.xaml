@@ -1,10 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SportMe.One.View.LeadEditView">
+             x:Class="SportMe.One.View.LeadEditView"
+             BackgroundColor="#1C1D20">
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
-        </StackLayout>
+
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+
+                    <Frame HasShadow="True">
+
+                        <StackLayout>
+                            <Entry TextColor="Black" Placeholder="CPF"  Text="{Binding Path=Lead.CPF}" Keyboard="Numeric"/>
+                            <DatePicker TextColor="Black" Date="{Binding Path=Lead.Nascimento}"/>
+
+                            <Grid HorizontalOptions="Center"  Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <Label Grid.Row="0" Grid.Column="0"
+                                       Text="Sexo:" TextColor="Black" 
+                                       FontSize="Medium"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="Start"/>
+
+
+                                <StackLayout Grid.Row="0" Grid.Column="1" 
+                                             Orientation="Horizontal" HorizontalOptions="End">
+
+                                    <Label x:Name="txtSex" Text="Masculino"/>
+                                    <Switch Grid.Row="0" Grid.Column="1" 
+                                            IsToggled="{Binding Lead.MascFeme}"
+                                            Toggled="Switch_Toggled"/>
+
+                                </StackLayout>
+                            </Grid>
+
+                            
+                            <Entry TextColor="Black" Placeholder="Email" Text="{Binding Path=Lead.Email}" />
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Setor:" TextColor="Black" FontSize="Medium" VerticalOptions="Center"/>
+                                <Picker x:Name="pickerLead" TextColor="Black"
+                                         SelectedItem="{Binding Path=Lead.Setor}" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Total Ingressos: R$" TextColor="Black" FontSize="Medium" VerticalOptions="Center"/>
+                                <Entry Text="{Binding Path=Lead.Valor}"
+                                       TextColor="Black" Keyboard="Numeric" 
+                                       HorizontalOptions="FillAndExpand"
+                                       TextChanged="Entry_TextChanged"
+                                       Unfocused="Entry_Unfocused"/>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                    <Button Margin="10" TextColor="White" Text="Cadastrar" Clicked="SaveButton_Clicked" BackgroundColor="#009688"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
+
 </ContentPage>
