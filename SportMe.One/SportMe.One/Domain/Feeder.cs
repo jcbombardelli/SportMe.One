@@ -12,7 +12,7 @@ namespace SportMe.One.Domain
       
         public string User { get; set; }
         public string Pass { get; set; }
-        public string Club { get; set; }
+        public Clube Clube { get; set; } = new Clube();
 
 
         public Feeder(string user, string pass)
