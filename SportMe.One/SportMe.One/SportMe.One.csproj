@@ -49,7 +49,6 @@
     <Compile Include="Helpers\Preferences.cs" />
     <Compile Include="Helpers\RestClient.cs" />
     <Compile Include="IOC\IDeviceStorage.cs" />
-    <Compile Include="ViewModel\Lead\LeadViewModel.cs" />
     <Compile Include="StringTable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
