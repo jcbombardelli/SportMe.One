@@ -3,23 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:j="clr-namespace:SportMe.One.Controls"
              x:Class="SportMe.One.View.LoginView"    
-             BackgroundColor="#1f271b">
+             BackgroundColor="#1C1D20">
 
 
 
     <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="Center">
 
+
+        <Image Source="icon.png" Margin="0,0,0,5"/>
+
         <j:Entry Text="{Binding Path=FeederInstance.User}" Placeholder="Usuario" 
-                 TextColor="White" PlaceholderColor="AntiqueWhite" />
+                 TextColor="White" PlaceholderColor="AntiqueWhite" Margin="0,0,0,5" />
 
-        <Entry Text="{Binding Path=FeederInstance.Pass}" IsPassword="True"
+        <j:Entry Text="{Binding Path=FeederInstance.Pass}" IsPassword="True"
                Placeholder="Senha" 
-               TextColor="White" PlaceholderColor="Wheat"/>
+               TextColor="White" PlaceholderColor="AntiqueWhite" Margin="0,0,0,5"/>
 
-        <Picker x:Name="picker" ItemsSource="{Binding Path=Clubes}" 
-                TextColor="White"/>
 
-        <Button Text="Entrar" Command="{Binding LoginCommand}" BackgroundColor="#f4d35e" TextColor="White"/>
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,5">  
+            <Label Text="Clube:" TextColor="White" FontSize="Medium" VerticalOptions="Center"/>
+            <Picker x:Name="picker" ItemsSource="{Binding Path=Clubes}" 
+                    SelectedItem="{Binding Path=FeederInstance.Clube.Name}"  VerticalOptions="Center"
+                TextColor="White" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <Grid HorizontalOptions="Center"  Padding="10" Margin="0,0,0,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.Row="0" Grid.Column="0"
+                   Text="Entrar automaticamente?" TextColor="White"
+                   VerticalOptions="CenterAndExpand"/>
+
+            <Switch Grid.Row="0" Grid.Column="1" 
+                    IsToggled="{Binding IsRememberMe}"/>
+
+        </Grid>
+
+
+        <Button Text="Entrar" Command="{Binding LoginCommand}" BackgroundColor="#f4d35e" TextColor="Black"/>
     </StackLayout>
 
 </ContentPage>

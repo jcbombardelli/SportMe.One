@@ -4,10 +4,7 @@ using SportMe.One.Helpers;
 using SportMe.One.View;
 using SportMe.One.ViewModel.Base;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -102,7 +99,7 @@ namespace SportMe.One.ViewModel
                 if (IsRememberMe)
                 {
                     PreferencesOne.Instance.LembrarMe = true;
-                    PreferencesOne.Instance.Clube = feederInstance.Club;
+                    PreferencesOne.Instance.Clube = feederInstance.Clube.Nome;
                     PreferencesOne.Instance.Usuario = feederInstance.User;
 
                     if (PreferencesOne.Instance.PrimeiroLogin == null)
@@ -117,7 +114,7 @@ namespace SportMe.One.ViewModel
           
             IsLoading = false;
 
-            Application.Current.MainPage = new MainPage();
+            Application.Current.MainPage = new LeadEditView();
 
         }
 
