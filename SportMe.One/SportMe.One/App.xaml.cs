@@ -2,7 +2,7 @@
 using SportMe.One.Domain;
 using SportMe.One.Helpers;
 using SportMe.One.View;
-
+using System.Net.NetworkInformation;
 using Xamarin.Forms;
 
 namespace SportMe.One
@@ -10,11 +10,10 @@ namespace SportMe.One
     public partial class App : Application
     {
 
-#if RELEASE
+
         public const string SportMeURL = "https://sportsmeleads.herokuapp.com/api/";
-#else
-        public const string SportMeURL = "http://192.168.1.102:3000/api/";
-#endif
+        //public const string SportMeURL = "http://192.168.1.102:3000/api/";
+
 
         public App()
         {
@@ -22,7 +21,7 @@ namespace SportMe.One
 
 
             if (PreferencesOne.Instance.LembrarMe)
-                MainPage = new MainPage();
+                MainPage = new LeadEditView();
             else
             {
                 MainPage = new LoginView();
@@ -44,6 +43,21 @@ namespace SportMe.One
             // Handle when your app resumes
         }
 
+
+
+        public static bool CheckInternetConnection()
+        {
+
+            try
+            {
+                bool isConnected = NetworkInterface.GetIsNetworkAvailable();
+                return true;
+            }
+            catch (System.Net.WebException ex)
+            {
+                return false;
+            }
+        }
 
 
     }

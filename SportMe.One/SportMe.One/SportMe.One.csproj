@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Converter\IntegerToCurrency.cs" />
     <Compile Include="Controls\Entry.cs" />
     <Compile Include="Domain\Lead.cs" />
     <Compile Include="Domain\Feeder.cs" />
@@ -48,6 +49,12 @@
     <Compile Include="Helpers\RestClient.cs" />
     <Compile Include="IOC\IDeviceStorage.cs" />
     <Compile Include="ViewModel\Lead\LeadViewModel.cs" />
+    <Compile Include="StringTable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringTable.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\Lead\LeadEditViewModel.cs" />
     <Compile Include="View\Main\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -62,6 +69,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="StringTable.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringTable.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Main\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
