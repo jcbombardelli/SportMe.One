@@ -13,13 +13,15 @@ namespace SportMe.One.Domain
         [JsonIgnore]
         public int ID { get; set; }
 
-        public string nome { get; set; } = string.Empty;
-        public string email { get; set; } = string.Empty;
-        public string cpf { get; set; } = string.Empty;
-        public string valor { get; set; } = string.Empty;
-        public string setor { get; set; } = string.Empty;
-        public string idade { get; set; } = string.Empty;
-        public string datahora { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Cpf { get; set; } = string.Empty;
+        public string Valor { get; set; } = string.Empty;
+        public string Setor { get; set; } = string.Empty;
+        public string Idade { get; set; } = string.Empty;
+        public DateTime Nascimento { get; set; }
+        public string Datahora { get; set; }
+        public bool MascFeme { get; set; } = false;
 
         [JsonIgnore]
         public bool Sync { get; set; } = false;
