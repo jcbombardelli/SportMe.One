@@ -15,8 +15,10 @@
                     <Frame HasShadow="True">
 
                         <StackLayout>
-                            <Entry TextColor="Black" Placeholder="CPF"  Text="{Binding Path=Lead.CPF}" Keyboard="Numeric"/>
-                            <DatePicker TextColor="Black" Date="{Binding Path=Lead.Nascimento}"/>
+                            <Entry TextColor="Black" Placeholder="CPF"  Text="{Binding Path=Lead.CPF}" Keyboard="Numeric"
+                                   TextChanged="EntryCPF_TextChanged" Unfocused="EntryCPF_Unfocused"/>
+                            <Entry TextChanged="EntryDate_TextChanged" Text="{Binding Path=Lead.Nascimento}" TextColor="Black"
+                                   Placeholder="Data de Nascimento" Keyboard="Numeric"/>
 
                             <Grid HorizontalOptions="Center"  Padding="10">
                                 <Grid.RowDefinitions>

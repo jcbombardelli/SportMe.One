@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportMe.One.Domain
 {
@@ -19,7 +14,7 @@ namespace SportMe.One.Domain
         public string Valor { get; set; } = string.Empty;
         public string Setor { get; set; } = string.Empty;
         public string Idade { get; set; } = string.Empty;
-        public DateTime Nascimento { get; set; }
+        public string Nascimento { get; set; }
         public string Datahora { get; set; }
         public bool MascFeme { get; set; } = false;
 
