@@ -132,44 +132,49 @@ namespace SportMe.One.View
             Entry entry = sender as Entry;
             entry.TextChanged -= EntryDate_TextChanged;
 
-            if (e.NewTextValue.Length > (e.OldTextValue == null ? 0 : e.OldTextValue.Length))
+            if (e.NewTextValue != null)
             {
-                //string last = e.NewTextValue.Substring(e.NewTextValue.Length - 1, 1);
-                char last = e.NewTextValue[e.NewTextValue.Length - 1];
-                if (last != 47)
+
+                if (e.NewTextValue.Length > (e.OldTextValue == null ? 0 : e.OldTextValue.Length))
                 {
-                    if (e.OldTextValue != null && e.OldTextValue != string.Empty)
+                    //string last = e.NewTextValue.Substring(e.NewTextValue.Length - 1, 1);
+                    char last = e.NewTextValue[e.NewTextValue.Length - 1];
+                    if (last != 47)
                     {
-                        var dt = Regex.Replace(e.NewTextValue.ToString(), @"\D", "");
-                        switch (dt.Length)
+                        if (e.OldTextValue != null && e.OldTextValue != string.Empty)
                         {
-                            case 2:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}/", dt.Substring(0, 2));
-                                else
-                                    entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
-                                break;
-                            case 3:
-                                if (last >= 48 && last <= 49)
-                                    entry.Text = string.Format("{0}/{1}", dt.Substring(0, 2), dt.Substring(2, 1));
-                                else
-                                    entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
-                                break;
-                            case 4:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}/{1}/", dt.Substring(0, 2), dt.Substring(2, 2));
-                                else
-                                    entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
-                                break;
-                            case 9:
-                                entry.Text = string.Format("{0}/{1}/{2}", dt.Substring(0, 2), dt.Substring(2, 2), dt.Substring(4, 4));
-                                break;
-                        };
-                    }
-                    else
-                    {
-                        if (!(Convert.ToInt32(last) >= 48 && Convert.ToInt32(last) <= 51))
-                            entry.Text = string.Empty;
+                            var dt = Regex.Replace(e.NewTextValue.ToString(), @"\D", "");
+                            switch (dt.Length)
+                            {
+                                case 2:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}/", dt.Substring(0, 2));
+                                    else
+                                        entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
+                                    break;
+                                case 3:
+                                    if (last >= 48 && last <= 49)
+                                        entry.Text = string.Format("{0}/{1}", dt.Substring(0, 2), dt.Substring(2, 1));
+                                    else
+                                        entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
+                                    break;
+                                case 4:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}/{1}/", dt.Substring(0, 2), dt.Substring(2, 2));
+                                    else
+                                        entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
+                                    break;
+                                case 9:
+                                    entry.Text = string.Format("{0}/{1}/{2}", dt.Substring(0, 2), dt.Substring(2, 2), dt.Substring(4, 4));
+                                    break;
+                            };
+                        }
+                        else
+                        {
+                            if (!(Convert.ToInt32(last) >= 48 && Convert.ToInt32(last) <= 51))
+                                entry.Text = string.Empty;
+                        }
+
                     }
                 }
             }
@@ -181,75 +186,79 @@ namespace SportMe.One.View
             Entry entry = sender as Entry;
             entry.TextChanged -= EntryCPF_TextChanged;
 
-            if (e.NewTextValue.Length > (e.OldTextValue == null ? 0 : e.OldTextValue.Length))
+            if (e.NewTextValue != null)
             {
-                //string last = e.NewTextValue.Substring(e.NewTextValue.Length - 1, 1);
-                char last = e.NewTextValue[e.NewTextValue.Length - 1];
-                if (last != 47)
+
+                if (e.NewTextValue.Length > (e.OldTextValue == null ? 0 : e.OldTextValue.Length))
                 {
-                    if (e.OldTextValue != null && e.OldTextValue != string.Empty)
+                    //string last = e.NewTextValue.Substring(e.NewTextValue.Length - 1, 1);
+                    char last = e.NewTextValue[e.NewTextValue.Length - 1];
+                    if (last != 47)
                     {
-                        var dt = Regex.Replace(e.NewTextValue.ToString(), @"\D", "");
-                        switch (dt.Length)
+                        if (e.OldTextValue != null && e.OldTextValue != string.Empty)
                         {
+                            var dt = Regex.Replace(e.NewTextValue.ToString(), @"\D", "");
+                            switch (dt.Length)
+                            {
 
-                            case 1:
-                            case 2:
+                                case 1:
+                                case 2:
 
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}", dt);
-                                break;
-                            case 3:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.", dt.Substring(0, 3));
-                                break;
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}", dt);
+                                    break;
+                                case 3:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.", dt.Substring(0, 3));
+                                    break;
 
-                            case 4:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}", dt.Substring(0, 3), dt.Substring(3, 1));
-                                break;
-                            case 5:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}", dt.Substring(0, 3), dt.Substring(3, 2));
-                                break;
+                                case 4:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}", dt.Substring(0, 3), dt.Substring(3, 1));
+                                    break;
+                                case 5:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}", dt.Substring(0, 3), dt.Substring(3, 2));
+                                    break;
 
-                            case 6:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}.", dt.Substring(0, 3), dt.Substring(3, 3));
-                                break;
+                                case 6:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}.", dt.Substring(0, 3), dt.Substring(3, 3));
+                                    break;
 
-                            case 7:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}.{2}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 1));
-                                break;
-                            case 8:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}.{2}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 2));
-                                break;
+                                case 7:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}.{2}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 1));
+                                    break;
+                                case 8:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}.{2}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 2));
+                                    break;
 
-                            case 9:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}.{2}-", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 3));
-                                break;
+                                case 9:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}.{2}-", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 3));
+                                    break;
 
-                            case 10:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}.{2}-{3}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 3), dt.Substring(9, 1));
-                                break;
-                            case 11:
-                                if (last >= 48 && last <= 57)
-                                    entry.Text = string.Format("{0}.{1}.{2}-{3}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 3), dt.Substring(9, 2));
-                                break;
-                            default:
-                                entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
-                                break;
+                                case 10:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}.{2}-{3}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 3), dt.Substring(9, 1));
+                                    break;
+                                case 11:
+                                    if (last >= 48 && last <= 57)
+                                        entry.Text = string.Format("{0}.{1}.{2}-{3}", dt.Substring(0, 3), dt.Substring(3, 3), dt.Substring(6, 3), dt.Substring(9, 2));
+                                    break;
+                                default:
+                                    entry.Text = e.NewTextValue.Remove(e.NewTextValue.Length - 1);
+                                    break;
 
-                        };
-                    }
-                    else
-                    {
-                        if (!(Convert.ToInt32(last) >= 48 && Convert.ToInt32(last) <= 51))
-                            entry.Text = string.Empty;
+                            };
+                        }
+                        else
+                        {
+                            if (!(Convert.ToInt32(last) >= 48 && Convert.ToInt32(last) <= 51))
+                                entry.Text = string.Empty;
+                        }
                     }
                 }
             }
